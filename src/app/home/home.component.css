@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  padding-top: 30px;
+}
+
+.container {
+  padding: 0 10%;
+}
+
+.sort {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e2e2e2;
+  border-radius: 1px;
+  opacity: 1;
+  height: 30px;
+  width: 15%;
+  padding-left: 10px;
+}
+
+.bookItems {
+  text-align: left;
+  font: normal normal normal 25px/30px Roboto;
+  letter-spacing: 0px;
+  color: #0a0102;
+  opacity: 1;
+}
+.count {
+  text-align: left;
+  font: normal normal normal 12px/15px Roboto;
+  letter-spacing: 0px;
+  color: #9d9d9d;
+  opacity: 1;
+  margin-left: 5px;
+}
+
+.book-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  grid-row-gap:40px;
+  grid-column-gap: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+.book-card {
+  grid-template-columns: repeat(3 20%);
+
+}
+.book-card h3,
+.book-card h4,
+.book-card h6 {
+  margin: 0;
+}
+.book-image {
+  height: 135px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.book-info {
+  padding: 20px;
+}
+
+.book-info > h3 {
+  text-align: left;
+  font: normal normal normal 14px/17px Roboto;
+  letter-spacing: 0px;
+  color: #0a0102;
+  opacity: 1;
+  text-transform: capitalize;
+}
+
+.book-info > .author {
+  text-align: left;
+  font: normal normal normal 10px/12px Roboto;
+  letter-spacing: 0px;
+  color: #9d9d9d;
+  opacity: 1;
+}
+
+.book-info > .price {
+  text-align: left;
+  text-align: left;
+  font: normal normal bold 12px/15px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  padding-top: 10px;
+  opacity: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  width: 45%;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 1;
+  padding: 0 12px 0 12px;
+  border-radius: 2px;
+}
+.add-btn {
+  font: normal normal 400 11px/13px roboto;
+  letter-spacing: 0px;
+  color: #ffffff;
+  background: #A03037 0% 0% no-repeat padding-box;
+}
+
+.wishlist{
+  font: normal normal 300 11px/13px roboto;
+letter-spacing: 0px;
+color: #0A0102;
+border: 1px solid #9D9D9D;
+
+}
+
+
+::ng-deep .mat-grid-tile-content{
+  display: block !important;;
+}

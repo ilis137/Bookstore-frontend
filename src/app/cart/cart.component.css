@@ -1,0 +1,103 @@
+.container {
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  padding-bottom: 40px;
+  color:#0A0102;
+}
+
+.card{
+  padding:20px 40px;
+  width:80%;
+  
+}
+
+.item-container{
+  display: flex;
+}
+
+.info{
+  padding-left:5%;
+}
+
+.book-image {
+  height: 135px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.book-info {
+  padding: 20px;
+}
+
+ .title {
+  text-align: left;
+  font: normal normal normal 14px/17px Roboto;
+  letter-spacing: 0px;
+  color: #0a0102;
+  opacity: 1;
+  text-transform: capitalize;
+}
+
+ .author {
+  text-align: left;
+  font: normal normal normal 10px/12px Roboto;
+  letter-spacing: 0px;
+  color: #9d9d9d;
+  opacity: 1;
+  padding-top:10px;
+}
+
+ .price {
+  text-align: left;
+  text-align: left;
+  font: normal normal bold 12px/15px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  padding-top: 15px;
+  opacity: 1;
+}
+strong,h4,h6{
+  margin: 0;
+}
+.quantity-container{
+  width:120px;
+  display: flex;
+  justify-content: space-between;
+}
+.quantity-container button{
+  border-radius: 50%;
+  padding: 0;
+  min-width:0;
+  height:30px;
+  width:30px;
+  color:#333232;
+  font-size:20px;
+  border: 1px solid #DBDBDB;
+  background: #FAFAFA 0% 0% no-repeat padding-box;
+}
+.quantity-container input{
+  width:40px;
+  text-align: center;
+  color:#333232;
+  border: 1px solid #DBDBDB;
+}
+.action-card{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-top:10px;
+}
+.action-card button{
+  
+  background: #3371B5 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+width:20%;
+color:#FAFAFA;
+
+}
