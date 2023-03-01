@@ -1,0 +1,39 @@
+<mat-toolbar class="bg-color navbar" color="primary">
+  <div class="container ml">
+    <div class="first-item">
+      <div class="logo-container">
+        <img
+          routerLink="/home"
+          src="../assets/education.svg"
+          alt="employee payroll icon"
+        />
+        <div class="title-container">
+          <span class="title">Bookstore</span><br />
+        </div>
+      </div>
+      <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm"   class="search"  placeholder="Search.."/>
+        <button mat-flat-button class="button">
+          <mat-icon
+          fontIcon="search"
+          class="icon"
+        ></mat-icon>
+        </button>
+   
+      </div>
+    </div>
+    <div class="second-item" >
+      <div class="options" routerLink="/login">
+        <span>Login</span>
+      </div >
+      <div class="options" routerLink="/register">
+        <span>Register</span>
+      </div>
+      <button mat-icon-button routerLink="/cart" class="cart" title="Cart" >
+       <span style="margin-right: 5px;">Cart </span>
+        <mat-icon class="cart-icon" *ngIf="!!badgeCount" matBadge={{badgeCount}} routerLink="">shopping_cart</mat-icon>
+        <mat-icon class="cart-icon" *ngIf="!badgeCount">shopping_cart</mat-icon>
+      </button>  
+    </div>
+  </div>
+</mat-toolbar>

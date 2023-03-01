@@ -1,0 +1,45 @@
+.container {
+  padding: 0 10%;
+  padding-top:40px;
+  
+  font: normal normal 200 18px/20px Roboto ;
+}
+
+.card{
+  padding: 20px 30px;
+  width:40%;
+  margin: 0 auto;
+}
+.title{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.name,.password{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+input{
+  width:70%;
+  border: 1px solid #DBDBDB;
+  height:30px;
+}
+
+.login-btn{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+.login-btn button{
+  text-align: center;
+  margin:0 auto;
+  border-radius: 2px;
+  opacity: 1;
+  width:20%;
+  background: #3371B5 0% 0% no-repeat padding-box;
+  text-align: center;
+  color: #fff!important;font-weight:600;
+}

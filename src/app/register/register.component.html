@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-card class="card">
+    <h2 class="title">
+      Registration
+    </h2>
+    <form action="submit" >
+      <div class="name flex">
+        <span>First Name</span>
+        <input type="text">
+      </div>
+      <div class="name flex">
+        <span>Last Name</span>
+        <input type="text">
+      </div>
+      <div class="email flex">
+        <span>Email</span>
+        <input type="text">
+      </div>
+      <div class=" flex">
+        <span>Date Of Birth</span>
+        <mat-form-field class="dob">
+      
+          <input matInput [matDatepicker]="picker" [max]="today" formControlName="date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker  #picker></mat-datepicker> 
+        
+        </mat-form-field>
+      </div>
+      
+      <div class="password flex">
+        <span>password</span>
+        <input type="password">
+      </div>
+      <div class="login-btn">
+        <button mat-button>REGISTER</button>  
+      </div>
+    </form>
+    
+  </mat-card>
+</div>
+
