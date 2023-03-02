@@ -1,1 +1,128 @@
-<p>checkout works!</p>
+<div class="container">
+  <mat-stepper linear="false" #stepper *ngIf="!orderSuccess">
+    <mat-step [stepControl]="deliveryAddress">
+      <mat-card class="card cart-item">
+        <mat-card-title class="card-title">Customer Details</mat-card-title>
+        <form [formGroup]="deliveryAddress">
+          <ng-template matStepLabel>Customer Details</ng-template>
+          <div class="form">
+            <div class="row">
+              <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input
+                  matInput
+                  class="form-input"
+                  formControlName="name"
+                  
+                />
+              </mat-form-field>
+              <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input
+                  matInput
+                  class="form-input"
+                  formControlName="phoneNumber"
+                  
+                />
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field class="form-field address" appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea
+              matInput
+              class="input"
+              style="height: 70px"
+              formControlName="address"
+            ></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <mat-form-field class="form-field" appearance="fill">
+              <mat-label>city</mat-label>
+              <input
+                matInput
+                class="form-input"
+                formControlName="city"
+                
+              />
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="fill">
+              <mat-label>State</mat-label>
+              <input
+                matInput
+                class="form-input"
+                formControlName="state"
+                
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="row type-row">
+            <mat-label class="main-tag">Type</mat-label>
+            <mat-radio-group formControlName="image">
+              <mat-radio-button
+                *ngFor="let type of types"
+                class="radio-btn"
+                color="primary"
+                [value]="type"
+              >
+                <span>{{type}}</span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <br>
+          <br>
+          <div class="btn-row">
+            <button class="next-btn"mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+    <mat-step>
+      <mat-card class="card cart-item">
+        <ng-template matStepLabel>Order Summary</ng-template>
+        <mat-card-title class="card-title">Order Summary</mat-card-title>
+        <div class="item-container">
+          <div class="image">
+            <img src="..\assets\Image 7.png" alt="image" class="bookimg" />
+          </div>
+          <div class="info">
+            <div class="title"><strong>Don't make me think</strong></div>
+            <h6 class="author">By Stephen King</h6>
+            <h4 class="price"><strong>RS 1500</strong></h4>
+            <br />
+          
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="next-btn"mat-button matStepperNext>Place Order</button>
+        </div>
+      </mat-card>
+    </mat-step>
+  </mat-stepper>
+  <div class="order-success">
+   
+    <img src="..\assets\Group 4132.svg" alt="">
+    <h2 class="success-msg">Order Placed Successfully</h2><br><br>
+    <h4 class="message">
+      hurray!!! your order is confirmed the order id is #123456 save the order id for further communication..
+    </h4>
+    <br>
+    
+    <table class="table">
+      <tr class="header">
+          <th>Email us</th>
+          <th>Contact us</th>
+          <th>Address</th>
+      </tr>
+      <tr class="content">
+          <td>pednekarsarvesh30@gmail.com</td>
+          <td>+918097290260</td>
+          <td>R7, Shri krushna krupa society, trolly lane road, ram nagar, bhandup(W), mumbai 400042</td>
+      </tr>
+  </table>
+  <button class="shopping" mat-raised-button routerLink="/home">Continue shopping</button>
+  </div>
+</div>

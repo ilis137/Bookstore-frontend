@@ -30,7 +30,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +66,7 @@ import { RegisterComponent } from './register/register.component';
     MatNativeDateModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatBadgeModule,MatGridListModule
+    MatBadgeModule,MatGridListModule,MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
