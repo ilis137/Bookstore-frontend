@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.name,.password{
+.email,.password{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,13 @@ input{
   border: 1px solid #DBDBDB;
   height:30px;
 }
-
+.form-field{
+  width:60%;
+  height: 60px;
+}
+::ng-deep .mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{
+  width:100%;
+}
 .login-btn{
   display: flex;
   justify-content: center;

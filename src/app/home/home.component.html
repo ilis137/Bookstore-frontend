@@ -9,14 +9,14 @@
   </div>
 </div>
 <div class="book-container container">
-<mat-card class="book-card">   
+<mat-card class="book-card" *ngFor="let book of books">   
     <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
+        <img [src]="book.bookImage" alt="image" class="bookimg">
     </div>
     <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
+        <h3 class="title"><strong>{{book.bookName}}</strong></h3>
+        <h6 class="author">{{book.author}}</h6>
+        <h4 class="price"><strong>{{book.bookPrice}}</strong> </h4><br>
         <div class="actions">
             <button mat-flat-button class="button add-btn">Add to bag</button>
             <button mat-flat-button class="button wishlist">WISHLIST</button>
@@ -24,191 +24,6 @@
     </div>
     <span style="flex: 1 1 auto;"></span>
 </mat-card>
-<mat-card class="book-card">   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>   
-</mat-card>
-  <mat-card class="book-card">   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-<mat-card class="book-card">
-   
-    <div class="book-image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-    </div>
-    <div class="book-info">
-        <h3 class="title"><strong>Don't make me think</strong></h3>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
-        </div>
-    </div>
-    <span style="flex: 1 1 auto;"></span>
-   
-</mat-card>
-
 </div>
 
 

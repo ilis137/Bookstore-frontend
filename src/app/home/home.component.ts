@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookService } from '../services/book.service';
 import { Book } from '../Model/Book';
 
 @Component({
@@ -13,5 +14,9 @@ export class HomeComponent {
    books !: Book[];
    public sort(){
 
+   }
+   constructor(private bookService:BookService){}
+   ngOnInit(){
+      
    }
 }

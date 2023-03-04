@@ -3,17 +3,28 @@
     <h2 class="title">
       Login
     </h2>
-    <form action="submit" >
-      <div class="name">
-        <span>Name</span>
-        <input type="text">
+    <form action="submit" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="email">
+        <span>Email</span>
+        <mat-form-field class="form-field">
+          <input matInput type="text" formControlName="email">
+          <mat-error *ngIf="myError('email', 'required')"
+          >This is a required field</mat-error>
+      
+        </mat-form-field>
+       
       </div>
       <div class="password">
         <span>password</span>
-        <input type="password">
+        <mat-form-field class="form-field">
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="myError('password', 'required')"
+        >This is a required field</mat-error>
+        
+      </mat-form-field>
       </div>
       <div class="login-btn">
-        <button mat-button>LOGIN</button>  
+        <button mat-button [disabled]="loginForm.invalid">LOGIN</button>  
       </div>
     </form>
     

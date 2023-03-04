@@ -1,42 +1,87 @@
 <div class="container">
   <mat-card class="card">
-    <h2 class="title">
-      Registration
-    </h2>
-    <form action="submit" >
+    <h2 class="title">Registration</h2>
+    <form action="submit" [formGroup]="registerForm" (ngSubmit)="submitForm()" >
       <div class="name flex">
         <span>First Name</span>
-        <input type="text">
+        <mat-form-field class="form-field">
+          <input matInput type="text" formControlName="firstName" />
+          <mat-error *ngIf="myError('firstName', 'required')"
+            >This is a required field</mat-error
+          >
+          <mat-error *ngIf="myError('firstName', 'minlength')"
+            >Name should contain at least 3 characters</mat-error
+          >
+          <mat-error *ngIf="myError('firstName', 'pattern')"
+            >First letter should be capitalized</mat-error
+          >
+          <mat-error *ngIf="myError('firstName', 'maxlength')"
+            >Name should contain at most 30 characters</mat-error
+          >
+        </mat-form-field>
       </div>
       <div class="name flex">
         <span>Last Name</span>
-        <input type="text">
+        <mat-form-field class="form-field">
+          <input matInput type="text" formControlName="lastName" />
+          <mat-error *ngIf="myError('lastName', 'required')"
+            >This is a required field</mat-error
+          >
+          <mat-error *ngIf="myError('lastName', 'minlength')"
+            >Name should contain at least 3 characters</mat-error
+          >
+          <mat-error *ngIf="myError('lastName', 'pattern')"
+            >First letter should be capitalized</mat-error
+          >
+          <mat-error *ngIf="myError('lastName', 'maxlength')"
+            >Name should contain at most 30 characters</mat-error
+          >
+        </mat-form-field>
       </div>
       <div class="email flex">
         <span>Email</span>
-        <input type="text">
-      </div>
-      <div class=" flex">
-        <span>Date Of Birth</span>
-        <mat-form-field class="dob">
+        <mat-form-field class="form-field">
+          <input matInput type="text" formControlName="email" />
+          <mat-error *ngIf="myError('lastName', 'required')"
+          >This is a required field</mat-error
+        >
       
-          <input matInput [matDatepicker]="picker" [max]="today" formControlName="date">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker  #picker></mat-datepicker> 
-        
         </mat-form-field>
       </div>
-      
+      <div class="flex">
+        <span>Date Of Birth</span>
+        <mat-form-field class="dob form-field">
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [max]="today"
+            formControlName="dob"
+          />
+
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="myError('lastName', 'required')"
+          >This is a required field</mat-error
+        >
+        </mat-form-field>
+      </div>
+
       <div class="password flex">
         <span>password</span>
-        <input type="password">
+        <mat-form-field class=" form-field">
+          <input matInput type="password" formControlName="password" />
+          <mat-error *ngIf="myError('lastName', 'required')"
+          >This is a required field</mat-error
+        >
+        </mat-form-field>
       </div>
       <div class="login-btn">
-        <button mat-button>REGISTER</button>  
+        <button mat-button [disabled]="registerForm.invalid">REGISTER</button>
       </div>
     </form>
-    
   </mat-card>
 </div>
-

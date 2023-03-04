@@ -4,6 +4,16 @@
   
   font: normal normal 200 18px/20px Roboto ;
 }
+::ng-deep .mat-mdc-text-field-wrapper{
+  border: 1px solid #DCDCDC!important;
+}
+::ng-deep .mdc-line-ripple::before{
+  border-bottom:0!important;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: #fff;
+}
+
 
 .card{
   padding: 20px 30px;
@@ -21,15 +31,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 5px 0;
 }
-
+span{
+  position: relative;
+  top:-10px;
+}
 input{
-  width:70%;
-  border: 1px solid #DBDBDB;
+  width:80%;
+ 
   height:30px;
 }
-
+.form-field{
+  width:60%;
+  height: 60px;
+}
+.dob{
+  height:auto;
+}
 .login-btn{
   display: flex;
   justify-content: center;

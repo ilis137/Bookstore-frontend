@@ -148,9 +148,10 @@ td {
   height:60px;
   opacity: 1;
 }
-img {
+.success-img {
   width: 200px;
-  height: 170px;
+  height: 225px;
+  margin: 0 auto;
 }
 
 h2 {
@@ -187,6 +188,5 @@ h2,h4{
   transform: translateX(-50%);
 }
 img{
-  height: 225px;
-  margin: 0 auto;
+ 
 }

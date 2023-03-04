@@ -102,9 +102,9 @@
       </mat-card>
     </mat-step>
   </mat-stepper>
-  <div class="order-success">
+  <div class="order-success" *ngIf="orderSuccess">
    
-    <img src="..\assets\Group 4132.svg" alt="">
+    <img src="..\assets\Group 4132.svg" class="success-img" alt="">
     <h2 class="success-msg">Order Placed Successfully</h2><br><br>
     <h4 class="message">
       hurray!!! your order is confirmed the order id is #123456 save the order id for further communication..

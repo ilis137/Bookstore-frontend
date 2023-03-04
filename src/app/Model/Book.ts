@@ -3,7 +3,7 @@ export interface Book {
    bookId? : number,
    bookName : string,
    author : string,
-   bookPrize : number,
+   bookPrice : number,
    bookImage : any,
    quantity : number, 
  
