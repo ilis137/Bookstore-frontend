@@ -29,6 +29,11 @@ export class LoginComponent {
     this.userService.loginUser(user).subscribe({next:(result:any)=>{
       console.log(result.data)
       localStorage.setItem("token",result.data)
+      this.userService.getUser(result.data).subscribe((result:any)=>{
+        this.userService.user.next(result.data);
+        localStorage.setItem("user data",JSON.stringify(result.data))
+      })
+      
       this.router.navigate(["home"])
     },error:(error:any)=>{
       if(error.status==401){

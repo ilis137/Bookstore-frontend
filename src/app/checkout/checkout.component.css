@@ -33,6 +33,7 @@ color:#FAFAFA;
 }
 .form-field{
   width:40%;
+  padding-bottom: 10px;
 }
 ::ng-deep .mdc-line-ripple::before{
   border-bottom:0!important;
@@ -96,7 +97,7 @@ color:#FAFAFA;
   padding-top:10px;
 }
 
- .price {
+ .price ,.quantity{
   text-align: left;
   text-align: left;
   font: normal normal bold 12px/15px Roboto;
@@ -173,7 +174,9 @@ h2,h4{
   margin: 0 auto;
   margin-top: 30px;
 }
-
+.stepper{
+  padding-top:30px ;
+}
 .order-success{
   display: flex;
   flex-direction: column;
@@ -183,10 +186,16 @@ h2,h4{
 }
 .success-msg{
   position: absolute;
-  top:23%;
+  top:27%;
   left:50%;
   transform: translateX(-50%);
 }
 img{
  
+}
+
+.btn-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

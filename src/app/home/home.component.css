@@ -62,8 +62,36 @@
   overflow: hidden;
   text-align: center;
   padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.stockOut{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #00000029;
+border-radius: 2px;
+opacity: 0.96;
+font: normal normal 500 15px/18px Roboto;
+letter-spacing: 0px;
+color: #0B0203;
+text-transform: uppercase;
+opacity: 1;
+
+position: absolute;
+padding: 10px 25px;
 }
 
+.addedToBag{
+  background: #3371B5 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+font: normal normal medium 11px/13px Lato;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-transform: uppercase;
+opacity: 1;
+}
 .book-info {
   padding: 20px;
 }
@@ -126,3 +154,31 @@ border: 1px solid #9D9D9D;
 ::ng-deep .mat-grid-tile-content{
   display: block !important;;
 }
+
+::ng-deep nav[role="navigation"]{
+   display: flex;
+   justify-content: center;
+}
+::ng-deep nav[role="navigation"] li{
+   margin:0 10px;
+   
+}
+
+::ng-deep nav[role="navigation"] li.current{
+ background-color: #A03037;
+  
+}
+
+::ng-deep .ngx-pagination .pagination-previous a:before, ::ng-deep .ngx-pagination .pagination-next a:after,::ng-deep .ngx-pagination .pagination-next.disabled:after,::ng-deep .ngx-pagination .pagination-previous.disabled:before{
+  content:""!important;
+}
+
+/* ::ng-deep .ngx-pagination .pagination-previous,
+::ng-deep .ngx-pagination .pagination-next{
+  border-radius: 50%;
+  border: 1px solid #E2E2E2;
+  width: 36px;
+  height:36px;
+  padding:0!important;
+} */
+

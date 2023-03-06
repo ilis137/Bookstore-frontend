@@ -31,16 +31,22 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
+import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
-   
+    HomeComponent, 
     CheckoutComponent,
     CartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchFilterPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
@@ -63,10 +69,12 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     MatSliderModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule,  MatPaginatorModule,
     MatSnackBarModule,
     HttpClientModule,
-    MatBadgeModule,MatGridListModule,MatStepperModule
+    MatBadgeModule,MatGridListModule,MatStepperModule,NgxPaginationModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({showForeground:true})
   ],
   providers: [],
   bootstrap: [AppComponent]

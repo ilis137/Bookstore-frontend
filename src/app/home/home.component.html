@@ -1,29 +1,37 @@
 <div class="container">
   <div class="header">
     <div class="first-item">
-      <span class="bookItems"><strong>BOOKS</strong><span class="count">({{bookLength}} items)</span></span>
+      <span class="bookItems"><strong>BOOKS</strong><span *ngIf="!!books?.length" class="count">({{books.length}} items)</span></span>
     </div>    
     <select class="sort" (change)="sort()" [(ngModel)]="sortBy">
         <option *ngFor="let option of sortByOptions" [selected]="option===sortBy" [value]="option">{{option}}</option>    
     </select>
   </div>
 </div>
-<div class="book-container container">
-<mat-card class="book-card" *ngFor="let book of books">   
+<div *ngIf="!!books?.length" class="book-container container">
+<mat-card class="book-card" *ngFor="let book of books|searchFilter:searchTerm|sortBy:sortKey:sortOrder| paginate: { itemsPerPage: pageSize, currentPage}">   
     <div class="book-image">
         <img [src]="book.bookImage" alt="image" class="bookimg">
+        <h4 *ngIf="!book.quantity" class="stockOut">OUT OF STOCK</h4>
     </div>
     <div class="book-info">
         <h3 class="title"><strong>{{book.bookName}}</strong></h3>
         <h6 class="author">{{book.author}}</h6>
-        <h4 class="price"><strong>{{book.bookPrice}}</strong> </h4><br>
+        <h4 class="price"><strong>RS. {{book.bookPrice}}</strong> </h4><br>
         <div class="actions">
-            <button mat-flat-button class="button add-btn">Add to bag</button>
-            <button mat-flat-button class="button wishlist">WISHLIST</button>
+            <button mat-flat-button *ngIf="book.quantity && !inCart(book.bookId!)" (click)="addToCart(book)" class="button add-btn">Add to bag</button>
+            <button mat-flat-button *ngIf="!inCart(book.bookId!)" [style.width]="book.quantity?'45%':'100%'" class="button wishlist">WISHLIST</button>
+            <button mat-flat-button *ngIf="inCart(book.bookId!)"   style="width:100%" class="button addedToBag">Added To Bag</button>
         </div>
     </div>
     <span style="flex: 1 1 auto;"></span>
 </mat-card>
+
 </div>
+<div *ngIf="!!books?.length" class="container pagination-container">
+	<pagination-controls (pageChange)="currentPage= $event"  previousLabel="Previous"
+  nextLabel="Next"></pagination-controls>
+</div>
+
 
 

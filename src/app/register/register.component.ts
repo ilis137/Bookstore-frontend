@@ -44,9 +44,15 @@ export class RegisterComponent {
       password: this.registerForm.get('password')?.value,
     };
     this.userService.registerUser(newUser).subscribe({next:(result:any)=>{
-     
-      localStorage.setItem("token",result.data.data)
+      const token=result.data
+      localStorage.setItem("token",token)
+      this.userService.getUser(token).subscribe((result:any)=>{
+        this.userService.user.next(result.data);
+        localStorage.setItem("user data",JSON.stringify(result.data))
+      })
+      
       this.router.navigate(["home"])
+
     },error:(error:any)=>{
       console.log(error)
     }})

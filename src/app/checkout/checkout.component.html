@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-stepper linear="false" #stepper *ngIf="!orderSuccess">
+  <mat-stepper class="stepper" [linear]="isLinear" #stepper *ngIf="!orderSuccess">
     <mat-step [stepControl]="deliveryAddress">
       <mat-card class="card cart-item">
         <mat-card-title class="card-title">Customer Details</mat-card-title>
@@ -15,6 +15,9 @@
                   formControlName="name"
                   
                 />
+                <mat-error *ngIf="myError('name', 'required')"
+                >This is a required field</mat-error
+              >
               </mat-form-field>
               <mat-form-field class="form-field" appearance="fill">
                 <mat-label>Phone Number</mat-label>
@@ -24,6 +27,9 @@
                   formControlName="phoneNumber"
                   
                 />
+                <mat-error *ngIf="myError('phoneNumber', 'required')"
+                >This is a required field</mat-error
+              >
               </mat-form-field>
             </div>
             <div class="row">
@@ -35,6 +41,9 @@
               style="height: 70px"
               formControlName="address"
             ></textarea>
+            <mat-error *ngIf="myError('address', 'required')"
+            >This is a required field</mat-error
+          >
               </mat-form-field>
             </div>
           </div>
@@ -47,6 +56,9 @@
                 formControlName="city"
                 
               />
+              <mat-error *ngIf="myError('city', 'required')"
+              >This is a required field</mat-error
+            >
             </mat-form-field>
             <mat-form-field class="form-field" appearance="fill">
               <mat-label>State</mat-label>
@@ -56,12 +68,30 @@
                 formControlName="state"
                 
               />
+              <mat-error *ngIf="myError('state', 'required')"
+              >This is a required field</mat-error
+            >
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="form-field" appearance="fill">
+              <mat-label>Pincode</mat-label>
+              <input
+                matInput
+                class="form-input"
+                formControlName="pincode"
+                
+              />
+              <mat-error *ngIf="myError('pincode', 'required')"
+              >This is a required field</mat-error
+            >
             </mat-form-field>
           </div>
 
           <div class="row type-row">
             <mat-label class="main-tag">Type</mat-label>
-            <mat-radio-group formControlName="image">
+         
+            <mat-radio-group formControlName="type">
               <mat-radio-button
                 *ngFor="let type of types"
                 class="radio-btn"
@@ -84,20 +114,22 @@
       <mat-card class="card cart-item">
         <ng-template matStepLabel>Order Summary</ng-template>
         <mat-card-title class="card-title">Order Summary</mat-card-title>
-        <div class="item-container">
+        <div class="item-container" *ngFor="let cartItem of cart">
           <div class="image">
-            <img src="..\assets\Image 7.png" alt="image" class="bookimg" />
+            <img [src]="cartItem.book?.bookImage" alt="image" class="bookimg" />
           </div>
           <div class="info">
-            <div class="title"><strong>Don't make me think</strong></div>
-            <h6 class="author">By Stephen King</h6>
-            <h4 class="price"><strong>RS 1500</strong></h4>
+            <div class="title"><strong>{{cartItem.book?.bookName}}</strong></div>
+            <h6 class="author">{{cartItem.book?.author}}</h6>
+            <h4 class="price"><strong>RS. {{cartItem.book?.bookPrice}}</strong></h4>
+            <h4 class="quantity">Quantity:<strong>{{cartItem.quantity}}</strong></h4>
             <br />
           
           </div>
         </div>
         <div class="btn-row">
-          <button class="next-btn"mat-button matStepperNext>Place Order</button>
+          <h3>Total Price: <span>RS. {{totalPrice}}</span></h3>
+          <button (click)="placeOrder()" class="next-btn"mat-button matStepperNext>Place Order</button>
         </div>
       </mat-card>
     </mat-step>
@@ -107,7 +139,7 @@
     <img src="..\assets\Group 4132.svg" class="success-img" alt="">
     <h2 class="success-msg">Order Placed Successfully</h2><br><br>
     <h4 class="message">
-      hurray!!! your order is confirmed the order id is #123456 save the order id for further communication..
+      hurray!!! your order is confirmed the order ids are <span *ngFor="let order of orders">#{{order.orderId}} </span>. save the order id for further communication..
     </h4>
     <br>
     
@@ -118,9 +150,9 @@
           <th>Address</th>
       </tr>
       <tr class="content">
-          <td>pednekarsarvesh30@gmail.com</td>
-          <td>+918097290260</td>
-          <td>R7, Shri krushna krupa society, trolly lane road, ram nagar, bhandup(W), mumbai 400042</td>
+          <td>{{orders[1].user?.email}}</td>
+          <td>{{orders[1].phoneNumber}}</td>
+          <td>{{orders[1].address}}</td>
       </tr>
   </table>
   <button class="shopping" mat-raised-button routerLink="/home">Continue shopping</button>

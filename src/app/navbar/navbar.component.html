@@ -12,8 +12,8 @@
         </div>
       </div>
       <div class="search-container">
-        <input type="text" [(ngModel)]="searchTerm"   class="search"  placeholder="Search.."/>
-        <button mat-flat-button class="button">
+        <input type="text" #searchBox [(ngModel)]="searchTerm" (keyup.enter)="search()"  class="search"  placeholder="Search.."/>
+        <button mat-flat-button class="button" (click)="search()">
           <mat-icon
           fontIcon="search"
           class="icon"
@@ -23,15 +23,18 @@
       </div>
     </div>
     <div class="second-item" >
-      <div class="options" routerLink="/login">
+      <div *ngIf="(user|json)==='{}'" class="options" routerLink="/login">
         <span>Login</span>
       </div >
-      <div class="options" routerLink="/register">
+      <div *ngIf="(user|json)==='{}'" class="options" routerLink="/register">
         <span>Register</span>
       </div>
-      <button mat-icon-button routerLink="/cart" class="cart" title="Cart" >
+      <div *ngIf="(user|json)!=='{}'" class="options" >
+        <span>Hi! {{user.firstName}}</span>
+      </div>
+      <button mat-icon-button (click)="toCart()" class="cart" title="Cart" >
        <span style="margin-right: 5px;">Cart </span>
-        <mat-icon class="cart-icon" *ngIf="!!badgeCount" matBadge={{badgeCount}} routerLink="">shopping_cart</mat-icon>
+        <mat-icon class="cart-icon" *ngIf="!!badgeCount" [matBadge]="badgeCount">shopping_cart</mat-icon>
         <mat-icon class="cart-icon" *ngIf="!badgeCount">shopping_cart</mat-icon>
       </button>  
     </div>

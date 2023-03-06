@@ -1,97 +1,25 @@
 <div class="container">
-  <h2>My Cart (5)</h2>
-  <mat-card class="card cart-item">
+  <h2>My Cart <span>({{cart.length}})</span></h2>
+  <mat-card class="card cart-item" *ngFor="let cartItem of cart">
     <div class="item-container">
       <div class="image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
+        <img [src]="cartItem.book?.bookImage" alt="image" class="bookimg">
       </div>
       <div class="info">
-        <div class="title"><strong>Don't make me think</strong></div>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
+        <div class="title"><strong>{{cartItem.book?.bookName}}</strong></div>
+        <h6 class="author">{{cartItem.book?.author}}</h6>
+        <h4 class="price"><strong>RS {{cartItem.book?.bookPrice}}</strong> </h4><br>
         <div class="quantity-container">
-            <button mat-flat-button >-</button>
-            <input value="2" type="text"/>    
-            <button mat-flat-button >+</button>
-        </div>
-  
+            <button mat-flat-button (click)="decreaseQuantity(cartItem)" >-</button>
+            <input [value]="cartItem.quantity" type="text" (change)="updateQuantity($event,cartItem)"/>    
+            <button mat-flat-button (click)="increaseQuantity(cartItem)">+</button>
+        </div>  
       </div>
     </div>
   </mat-card>
-  <mat-card class="card cart-item">
-    <div class="item-container">
-      <div class="image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-      </div>
-      <div class="info">
-        <div class="title"><strong>Don't make me think</strong></div>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="quantity-container">
-            <button mat-flat-button >-</button>
-            <input value="2" type="text"/>    
-            <button mat-flat-button >+</button>
-        </div>
-  
-      </div>
-    </div>
-  </mat-card>
-  <mat-card class="card cart-item">
-    <div class="item-container">
-      <div class="image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-      </div>
-      <div class="info">
-        <div class="title"><strong>Don't make me think</strong></div>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="quantity-container">
-            <button mat-flat-button >-</button>
-            <input value="2" type="text"/>    
-            <button mat-flat-button >+</button>
-        </div>
-  
-      </div>
-    </div>
-  </mat-card>
-  <mat-card class="card cart-item">
-    <div class="item-container">
-      <div class="image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-      </div>
-      <div class="info">
-        <div class="title"><strong>Don't make me think</strong></div>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="quantity-container">
-            <button mat-flat-button >-</button>
-            <input value="2" type="text"/>    
-            <button mat-flat-button >+</button>
-        </div>
-  
-      </div>
-    </div>
-  </mat-card>
-  <mat-card class="card cart-item">
-    <div class="item-container">
-      <div class="image">
-        <img src="..\assets\Image 7.png" alt="image" class="bookimg">
-      </div>
-      <div class="info">
-        <div class="title"><strong>Don't make me think</strong></div>
-        <h6 class="author">By Stephen King</h6>
-        <h4 class="price"><strong>RS 1500</strong> </h4><br>
-        <div class="quantity-container">
-            <button mat-flat-button >-</button>
-            <input value="2" type="text"/>    
-            <button mat-flat-button >+</button>
-        </div>
-  
-      </div>
-    </div>
-  </mat-card>
-  <mat-card class="card action-card">
-    <h3>Total Price: <span>RS. 990</span></h3>
-    <button mat-button>PLACE ORDER</button>   
+  <h2 *ngIf="!cart.length">Cart is empty</h2>
+  <mat-card *ngIf="!!cart.length" class="card action-card">
+    <h3>Total Price: <span>RS. {{totalPrice}}</span></h3>
+    <button mat-button routerLink="/checkout">PLACE ORDER</button>   
   </mat-card>
 </div>
