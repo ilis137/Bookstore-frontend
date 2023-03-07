@@ -32,6 +32,12 @@
       <div *ngIf="(user|json)!=='{}'" class="options" >
         <span>Hi! {{user.firstName}}</span>
       </div>
+      <div *ngIf="(user|json)!=='{}'" routerLink="/wishlist" class="options" >
+        <span>Wishlist</span>
+      </div>
+      <div (click)="logout()" *ngIf="(user|json)!=='{}'" class="options" >
+        <span>Logout</span>
+      </div>
       <button mat-icon-button (click)="toCart()" class="cart" title="Cart" >
        <span style="margin-right: 5px;">Cart </span>
         <mat-icon class="cart-icon" *ngIf="!!badgeCount" [matBadge]="badgeCount">shopping_cart</mat-icon>

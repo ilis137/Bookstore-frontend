@@ -19,8 +19,8 @@
         <h6 class="author">{{book.author}}</h6>
         <h4 class="price"><strong>RS. {{book.bookPrice}}</strong> </h4><br>
         <div class="actions">
-            <button mat-flat-button *ngIf="book.quantity && !inCart(book.bookId!)" (click)="addToCart(book)" class="button add-btn">Add to bag</button>
-            <button mat-flat-button *ngIf="!inCart(book.bookId!)" [style.width]="book.quantity?'45%':'100%'" class="button wishlist">WISHLIST</button>
+            <button mat-flat-button *ngIf="book.quantity && !inCart(book.bookId!)" (click)="addToCart(book)" [style.width]="inWishlist(book?.bookId!)?'100%':'45%'" class="button add-btn">Add to bag</button>
+            <button mat-flat-button *ngIf="!inCart(book.bookId!) && !inWishlist(book.bookId!)" (click)="addToWishlist(book)" [style.width]="book.quantity?'45%':'100%'" class="button wishlist">WISHLIST</button>
             <button mat-flat-button *ngIf="inCart(book.bookId!)"   style="width:100%" class="button addedToBag">Added To Bag</button>
         </div>
     </div>

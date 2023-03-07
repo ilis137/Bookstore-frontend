@@ -6,6 +6,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'register',
     component:RegisterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'wishlist',
+    component:WishlistComponent,
     pathMatch: 'full'
   }
 

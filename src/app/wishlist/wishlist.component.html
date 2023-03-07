@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>My Wishlist <span>({{wishlist.length}})</span></h2>
+  <mat-card class="card cart-item" *ngFor="let wish of wishlist">
+    <div class="item-container">
+      <div class="image">
+        <img [src]="wish.book?.bookImage" alt="image" class="bookimg">
+      </div>
+      <div class="info">
+        <div class="title"><strong>{{wish.book?.bookName}}</strong></div>
+        <h6 class="author">{{wish.book?.author}}</h6>
+        <h4 class="price"><strong>RS {{wish.book?.bookPrice}}</strong> </h4><br>
+        <br>
+        <div class="action-container">
+           <span class="wishlist-remove"(click)="removeFromWishlist(wish.wishlistId!)">Remove</span>
+        </div>  
+      </div>
+    </div>
+  </mat-card>
+  <h2 *ngIf="!wishlist.length">Wishlist is empty</h2>
+  
+</div>

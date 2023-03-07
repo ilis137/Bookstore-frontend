@@ -4,6 +4,8 @@ import { Book } from '../Model/Book';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { Cart } from '../Model/Cart';
+import { WishlistService } from '../services/wishlist.service';
+import { Wishlist } from '../Model/Wishlist';
 
 @Component({
   selector: 'app-home',
@@ -25,8 +27,8 @@ export class HomeComponent {
   currentPage: number = 0;
   searchTerm: string = '';
   public addedToBag:number[]=[];
-
-  constructor(private bookService: BookService,private cartService: CartService, private router: Router) {}
+  public addedToWishlist:number[]=[];
+  constructor(private bookService: BookService,private cartService: CartService,private wishlistService: WishlistService, private router: Router) {}
 
   ngOnInit() {
     this.bookService.getBooks().subscribe((result: any) => {
@@ -48,6 +50,12 @@ export class HomeComponent {
         })
         
       })
+      this.wishlistService.getWishlist().subscribe((result:any)=>{
+        result.data.forEach((wish:any)=>{
+          this.addedToWishlist.push(wish.book.bookId);
+        })
+        
+    })
     }
     
   }
@@ -98,8 +106,25 @@ export class HomeComponent {
           // sessionStorage.setItem("cart",JSON.stringify(cart))
     })
   }
+  addToWishlist(book: Book) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['login']);
+      return;
+    }
+    let wishlist:Wishlist={
+      bookId:book.bookId
+    }
+    this.wishlistService.addToWishlist(wishlist).subscribe((result:any)=>{
+          
+        this.addedToWishlist.push(result.data.book.bookId);
+    })
+  }
 
   inCart(bookId:number){
       return this.addedToBag.includes(bookId);
+  }
+  inWishlist(bookId:number){
+      return this.addedToWishlist.includes(bookId);
   }
 }

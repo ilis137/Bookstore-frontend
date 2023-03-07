@@ -36,6 +36,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { WishlistComponent } from './wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from "ngx-ui-loader";
     LoginComponent,
     RegisterComponent,
     SearchFilterPipe,
-    SortByPipe
+    SortByPipe,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

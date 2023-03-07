@@ -53,4 +53,11 @@ export class NavbarComponent {
     }
     this.router.navigate(["/cart"])
   }
+
+  logout(){
+    localStorage.removeItem("token")
+    localStorage.removeItem("user data")
+    this.user={}
+    this.cartService.pushToCart([])
+  }
 }
