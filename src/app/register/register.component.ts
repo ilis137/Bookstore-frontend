@@ -49,9 +49,10 @@ export class RegisterComponent {
       this.userService.getUser(token).subscribe((result:any)=>{
         this.userService.user.next(result.data);
         localStorage.setItem("user data",JSON.stringify(result.data))
+        this.router.navigate(["verify/otp"])
       })
       
-      this.router.navigate(["home"])
+    
 
     },error:(error:any)=>{
       console.log(error)

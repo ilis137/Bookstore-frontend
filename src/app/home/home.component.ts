@@ -83,10 +83,22 @@ export class HomeComponent {
 
   addToCart(book: Book) {
     const token = localStorage.getItem('token');
+    const userJSON = localStorage.getItem('user data');
+    
+    
     if (!token) {
       this.router.navigate(['login']);
       return;
     }
+    if(userJSON) {
+      const user=JSON.parse(userJSON);
+      if( user.verified=="false"){
+       
+        this.router.navigate(['verify/otp']);
+      }
+ 
+      return;
+     } 
     let cart:Cart={
       bookId:book.bookId,
       quantity:1

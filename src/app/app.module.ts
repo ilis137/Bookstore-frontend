@@ -37,6 +37,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from "ngx-ui-loader";
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { OTPVerificationComponent } from './otpverification/otpverification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     RegisterComponent,
     SearchFilterPipe,
     SortByPipe,
-    WishlistComponent
+    WishlistComponent,
+    OTPVerificationComponent
   ],
   imports: [
     BrowserModule,

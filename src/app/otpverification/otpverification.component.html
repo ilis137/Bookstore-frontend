@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card class="card">
+    <h2 class="title">
+      OTP VERIFICATION
+    </h2>
+    <form action="submit"  >
+      <div class="otp">
+        <span>OTP</span>
+        <mat-form-field class="form-field">
+          <input matInput type="text" name="otp" #otp>
+       
+      
+        </mat-form-field>
+       
+      </div>
+      <p class="otp-alert" *ngIf="this.submitted&&!this.verified"
+        >Otp is wrong</p>
+      <div class="action-btn">
+        <button mat-button (click)="submitOTP(otp.value)">submit</button>  
+        <button mat-button class="regen" [disabled]="otpGenerated" (click)="regenerateOTP()">Regenerate</button>  
+      </div>
+    </form>
+    
+  </mat-card>
+</div>
+

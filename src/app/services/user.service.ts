@@ -12,6 +12,7 @@ import { User } from '../Model/User';
   providedIn: 'root',
 })
 export class UserService {
+ 
   baseUrl: string = 'http://localhost:8080/api/auth';
   public user = new BehaviorSubject<User>({});
   constructor(private httpClient: HttpClient, private router: Router) {}
@@ -26,5 +27,19 @@ export class UserService {
   getUser(token: string) {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return this.httpClient.get(`${this.baseUrl}/retrieve/user`, { headers });
+  }
+  regenerateOTP() {
+    return this.httpClient.get(`${this.baseUrl}/user/generateotp/${this.getToken()}`);
+  }
+  verifyOTP(otp: string) {   
+    return this.httpClient.get(`${this.baseUrl}/user/verify/${this.getToken()}?otp=${otp}`);
+  }
+  getHeaders(){
+    const TOKEN=localStorage.getItem('token'); 
+    return new HttpHeaders().set('Authorization', 'Bearer ' + TOKEN);  
+  }
+
+  getToken(){
+    return localStorage.getItem('token');
   }
 }

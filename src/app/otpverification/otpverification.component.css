@@ -1,0 +1,65 @@
+.container {
+  padding: 0 10%;
+  padding-top:40px;
+  
+  font: normal normal 200 18px/20px Roboto ;
+}
+
+.card{
+  padding: 20px 30px;
+  width:40%;
+  margin: 0 auto;
+}
+.title{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.otp,.password{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  padding-bottom: 0;
+}
+
+input{
+  width:70%;
+  border: 1px solid #DBDBDB;
+  height:30px;
+}
+.form-field{
+  width:60%;
+  height: 60px;
+}
+::ng-deep .mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input{
+  width:100%;
+}
+.action-btn{
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+}
+.otp-alert{
+  color:red;
+  margin:0;
+  position: relative;
+  left:40%;
+}
+.action-btn button{
+  width:100%;
+  text-align: center;
+  margin:0 auto;
+  border-radius: 2px;
+  opacity: 1;
+  
+  background: #3371B5 0% 0% no-repeat padding-box;
+  text-align: center;
+  color: #fff!important;font-weight:600;
+}
+
+.action-btn button.regen[disabled]{
+  background: #a6afb7 0% 0% no-repeat padding-box;
+}

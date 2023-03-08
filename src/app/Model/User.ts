@@ -4,4 +4,5 @@ export interface User{
   dob?:string,
   email?:string,
   password?:string
+  verified?:string;
 }

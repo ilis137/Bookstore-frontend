@@ -1,9 +1,9 @@
 <mat-toolbar class="bg-color navbar" color="primary">
   <div class="container ml">
     <div class="first-item">
-      <div class="logo-container">
+      <div routerLink="/home" class="logo-container">
         <img
-          routerLink="/home"
+        
           src="../assets/education.svg"
           alt="employee payroll icon"
         />
@@ -32,7 +32,7 @@
       <div *ngIf="(user|json)!=='{}'" class="options" >
         <span>Hi! {{user.firstName}}</span>
       </div>
-      <div *ngIf="(user|json)!=='{}'" routerLink="/wishlist" class="options" >
+      <div *ngIf="(user|json)!=='{}'&&user.verified!=='false'" routerLink="/wishlist" class="options" >
         <span>Wishlist</span>
       </div>
       <div (click)="logout()" *ngIf="(user|json)!=='{}'" class="options" >
