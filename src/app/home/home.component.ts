@@ -95,9 +95,10 @@ export class HomeComponent {
       if( user.verified=="false"){
        
         this.router.navigate(['verify/otp']);
+          return;
       }
  
-      return;
+    
      } 
     let cart:Cart={
       bookId:book.bookId,
