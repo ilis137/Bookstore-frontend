@@ -5,13 +5,13 @@
         <img
         
           src="../assets/education.svg"
-          alt="employee payroll icon"
+          alt="Book store icon"
         />
         <div class="title-container">
           <span class="title">Bookstore</span><br />
         </div>
       </div>
-      <div class="search-container">
+      <div *ngIf="showSearch" class="search-container">
         <input type="text" #searchBox [(ngModel)]="searchTerm" (keyup.enter)="search()"  class="search"  placeholder="Search.."/>
         <button mat-flat-button class="button" (click)="search()">
           <mat-icon
@@ -38,7 +38,7 @@
       <div (click)="logout()" *ngIf="(user|json)!=='{}'" class="options" >
         <span>Logout</span>
       </div>
-      <button mat-icon-button (click)="toCart()" class="cart" title="Cart" >
+      <button *ngIf="(user|json)!=='{}'&&user.verified!=='false'" mat-icon-button (click)="toCart()" class="cart" title="Cart" >
        <span style="margin-right: 5px;">Cart </span>
         <mat-icon class="cart-icon" *ngIf="!!badgeCount" [matBadge]="badgeCount">shopping_cart</mat-icon>
         <mat-icon class="cart-icon" *ngIf="!badgeCount">shopping_cart</mat-icon>

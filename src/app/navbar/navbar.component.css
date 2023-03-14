@@ -110,3 +110,6 @@ img {
   --mat-mdc-button-persistent-ripple-color: transparent;
     --mat-mdc-button-ripple-color: transparent;
 }
+span,button{
+   cursor:pointer;
+}

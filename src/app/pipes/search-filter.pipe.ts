@@ -5,7 +5,12 @@ import { Book } from '../Model/Book';
   name: 'searchFilter'
 })
 export class SearchFilterPipe implements PipeTransform {
-
+  /* 
+  transform the input books and filters them by search term
+  @param {Book[]} books,list of books
+  @param {string} searchTerm,search key to filter by
+  @return {Book[]} books
+  */
   transform(books: Book[], searchTerm:string): Book[] {
     const result : any = [];
     if(!books || searchTerm == '' ) {

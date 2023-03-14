@@ -12,12 +12,19 @@ export class WishlistComponent {
   wishlist:Wishlist[]=[];
 
   constructor(private wishlistService: WishlistService) {}
-
+   /* Lifecycle hook when component is mounted .
+   will fetch the wishlist for that user
+   */
   ngOnInit(){
     this.wishlistService.getWishlist().subscribe((result:any)=>{
       this.wishlist=result.data;
   })
 }
+
+  /*
+   will remove the wishlist item for that user from the wishlist.
+   @param {number} wishlistId,id of wishlist item
+   */
   removeFromWishlist(wishlistId:number){
     this.wishlistService.deleteWishlist(wishlistId).subscribe((result:any)=>{
       this.wishlist = this.wishlist.filter(

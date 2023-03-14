@@ -5,7 +5,13 @@ import { Book } from '../Model/Book';
   name: 'sortBy'
 })
 export class SortByPipe implements PipeTransform {
-
+   /* 
+  sorts the input books by book pobject key and order ofsorting
+  @param {Book[]} books,list of books
+  @param {string} sortKey,book object key to sort by
+  @param {string} sortOrder,sorting order
+  @return {Book[]} books
+  */
   transform(books: Book[],sortKey:any,sortOrder?:string): Book[] {
     sortOrder = sortOrder && (sortOrder.toLowerCase() as any);
     if (!books || sortKey=="relevance") return books.sort((a:Book, b:Book) => a['bookId' as keyof Book] - b['bookId' as keyof Book]);

@@ -13,16 +13,21 @@ export class OTPVerificationComponent {
   otpGenerated: boolean=true;
 
   constructor(private userService:UserService,private router:Router){};
-
+   /* Lifecycle hook when component is mounted */
   ngOnInit(){
     this.regeneratedOTP()
   }
-
+  /* 
+  enable otp regenration after 30 secs
+  */
   regeneratedOTP(){
     setTimeout(() => {
       this.otpGenerated=false;
     }, 30*1000);
   }
+
+  /* called when otp is entered and submiteed.will check if otp is 
+  valid or not if valid it will set user verified to true */
   submitOTP(otp:string){
       this.submitted=true;
       this.userService.verifyOTP(otp).subscribe({next:(result:any)=>{

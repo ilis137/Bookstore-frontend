@@ -17,10 +17,19 @@ export class LoginComponent {
   });
   
   constructor(private _formBuilder: FormBuilder,private router:Router,private userService:UserService,private snackBar:MatSnackBar) {}
-  
+   /* 
+  determine errors from controls in the form delivery address
+  @param {string} controlName is control name of form control
+  @param {string} errorName is validation type  of form control
+  */ 
   public myError = (controlName: string, errorName: string) => {
     return this.loginForm.controls[controlName].hasError(errorName);
   };
+
+  /* 
+  method to authenticate the user,called when loginForm is submitted.will
+  invoke loginUser service on userService
+  */
   login(){
     const user: User = {
       email: this.loginForm.get('email')?.value,

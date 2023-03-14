@@ -5,17 +5,17 @@ import { BehaviorSubject } from 'rxjs';
 import { Book } from '../Model/Book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookService {
+  public search = new BehaviorSubject<string>('');
+  baseUrl: string = 'http://localhost:8080/api/book';
+  constructor(private httpClient: HttpClient) {}
 
-  public search = new BehaviorSubject<string>("");
-  baseUrl:string="http://localhost:8080/api/book"
-  constructor(private httpClient:HttpClient) { }
-
-
-  getBooks(){
-    return this.httpClient.get(`${this.baseUrl}/view/all`)
+  //get all the book by calling /view/all api
+  //@method POST
+  // @return Observable
+  getBooks() {
+    return this.httpClient.get(`${this.baseUrl}/view/all`);
   }
- 
 }

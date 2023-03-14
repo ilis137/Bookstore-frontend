@@ -27,14 +27,16 @@ export class CheckoutComponent {
   orders: Order[]=[];
   isLinear=true;
   constructor(private _formBuilder: FormBuilder,private cartService:CartService,private orderService:OrderService) {}
-
+   /* Lifecycle hook when component is mounted */
   ngOnInit(){
     this.cartService.getCart().subscribe((result:any)=>{
       this.cart=result.data
       this.calculateTotalPrice()
     })
   }
-
+  /* 
+  place a new order by collecting order details from delivery address form
+  */
   placeOrder(){
     let newOrder: Order = {
       name: this.deliveryAddress.get('name')?.value!,
@@ -54,6 +56,7 @@ export class CheckoutComponent {
 
   }
 
+  //calculate total price by adding cart ittem prices
   calculateTotalPrice() { 
     let total=0;   
     this.cart.forEach((cartItem) => {
@@ -61,7 +64,11 @@ export class CheckoutComponent {
     });
     this.totalPrice=total
   }
-
+  /* 
+  determine errors from controls in the form delivery address
+  @param {string} controlName is control name of form control
+  @param {string} errorName is validation type  of form control
+  */ 
   public myError = (controlName: string, errorName: string) => {
     return this.deliveryAddress.controls[controlName].hasError(errorName);
   };
